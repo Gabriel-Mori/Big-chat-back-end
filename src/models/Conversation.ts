@@ -1,8 +1,6 @@
 import {Model, DataTypes} from "sequelize";
 import sequelize from "../config/sequelize";
 
-import {Message, User} from ".";
-
 class Conversation extends Model {
   public id!: string;
   public clientId!: string;

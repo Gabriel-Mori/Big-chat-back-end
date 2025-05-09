@@ -12,7 +12,6 @@ class User extends Model {
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
 
-  // Add a method to compare passwords if needed
   public async validatePassword(password: string): Promise<boolean> {
     return bcrypt.compare(password, this.getDataValue("password"));
   }

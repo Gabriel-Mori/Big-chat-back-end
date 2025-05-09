@@ -1,4 +1,3 @@
-// src/services/financialService.ts
 import {Plan} from "../models";
 
 class FinancialService {

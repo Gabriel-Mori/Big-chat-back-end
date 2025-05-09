@@ -1,4 +1,3 @@
-// src/services/conversationService.ts
 import {Conversation, Message, User} from "../models";
 import {ConversationResponse} from "../types/conversation";
 import {Op} from "sequelize";

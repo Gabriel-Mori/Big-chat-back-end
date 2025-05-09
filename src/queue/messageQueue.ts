@@ -17,7 +17,6 @@ class MessageQueue {
       this.channelModel = await amqp.connect(url);
       this.channel = await this.channelModel.createChannel();
 
-      // Declare queues with different priorities
       await this.channel.assertQueue(this.normalQueue, {durable: true});
       await this.channel.assertQueue(this.urgentQueue, {durable: true});
 

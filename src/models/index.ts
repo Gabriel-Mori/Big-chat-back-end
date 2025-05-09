@@ -3,7 +3,6 @@ import Plan from "./Plan";
 import Conversation from "./Conversation";
 import Message from "./Message";
 
-// Associações
 User.hasOne(Plan, {foreignKey: "userId", as: "plan"});
 Plan.belongsTo(User, {foreignKey: "userId"});
 

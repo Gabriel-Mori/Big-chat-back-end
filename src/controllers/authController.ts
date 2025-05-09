@@ -1,4 +1,3 @@
-// src/controllers/authController.ts
 import {Request, Response, NextFunction} from "express";
 import * as yup from "yup";
 import authService from "../services/authService";

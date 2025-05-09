@@ -1,4 +1,3 @@
-// src/controllers/messageController.ts
 import {Request, Response, NextFunction} from "express";
 import * as yup from "yup";
 import messageService from "../services/messageService";
@@ -14,7 +13,6 @@ class MessageController {
         return res.status(401).json({message: "User not authenticated"});
       }
 
-      // Validate request body
       const schema = yup.object().shape({
         conversationId: yup
           .string()

@@ -1,8 +1,6 @@
 import {Model, DataTypes} from "sequelize";
 import sequelize from "../config/sequelize";
 
-import {User} from ".";
-
 class Plan extends Model {
   public id!: string;
   public userId!: string;

@@ -1,4 +1,3 @@
-// src/services/messageService.ts
 import {Message, Conversation} from "../models";
 import {
   SendMessageRequest,
@@ -18,7 +17,6 @@ class MessageService {
     try {
       let conversation;
 
-      // Get or create conversation
       if (messageData.conversationId) {
         conversation = await conversationService.getConversation(
           messageData.conversationId,
@@ -182,20 +180,15 @@ class MessageService {
 
   async processQueuedMessages(): Promise<void> {
     try {
-      // Process urgent messages first
       await messageQueue.consumeMessages(async (messageData) => {
         console.log("Processing urgent message:", messageData.id);
 
-        // Update message status to processing
         await this.updateMessageStatus(messageData.id, "processing");
 
-        // Simulate message processing time (would be replaced with actual delivery logic)
         await new Promise((resolve) => setTimeout(resolve, 5000));
 
-        // Update message status to sent
         await this.updateMessageStatus(messageData.id, "sent");
 
-        // Increment unread count for recipient
         const conversation = await Conversation.findByPk(
           messageData.conversationId
         );
@@ -209,20 +202,15 @@ class MessageService {
         console.log("Urgent message processed:", messageData.id);
       }, "urgent");
 
-      // Then process normal messages
       await messageQueue.consumeMessages(async (messageData) => {
         console.log("Processing normal message:", messageData.id);
 
-        // Update message status to processing
         await this.updateMessageStatus(messageData.id, "processing");
 
-        // Simulate message processing time (would be replaced with actual delivery logic)
         await new Promise((resolve) => setTimeout(resolve, 30000));
 
-        // Update message status to sent
         await this.updateMessageStatus(messageData.id, "sent");
 
-        // Increment unread count for recipient
         const conversation = await Conversation.findByPk(
           messageData.conversationId
         );
